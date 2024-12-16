@@ -1,5 +1,7 @@
 # DevOps Trial: API Deployment & Load Testing
 
+![Result](assets/result.png)
+
 ## Description
 This project demonstrates a complete DevOps pipeline including:
 - REST API deployment using Kubernetes
