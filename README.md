@@ -1,6 +1,7 @@
 # DevOps Trial: API Deployment & Load Testing
 
-![Result](assets/result.png)
+![Result](assets/result-chart.png)
+![Result](assets/result-statistic.png)
 
 ## Description
 This project demonstrates a complete DevOps pipeline including:
@@ -17,17 +18,45 @@ This project demonstrates a complete DevOps pipeline including:
 
 ```
 project/
-├── chart/api/ # REST API helm chart
-│ ├── src/
-│ ├── Dockerfile
-│ └── requirements.txt
+├── assets/                     # Images and other assets
+│   └── result.png
 │
-├── terraform/ # terraform deployment
-│ └── main.tf
+├── chart/                      # Helm charts
+│   ├── api/                    # REST API helm chart
+│   │   ├── Chart.yaml
+│   │   ├── values.yaml
+│   │   ├── templates/
+│   │   │   ├── deployment.yaml
+│   │   │   ├── service.yaml
+│   │   │   └── ingress.yaml
+│   │   ├── src/
+│   │   │   ├── app.py
+│   │   │   └── utils/
+│   │   ├── Dockerfile
+│   │   └── requirements.txt
+│   │
+│   └── hello-service/           # Hello Service helm chart
+│       ├── Chart.yaml
+│       ├── values.yaml
+│       ├── templates/
+│       │   ├── deployment.yaml
+│       │   ├── service.yaml
+│       │   └── ingress.yaml
+│       ├── src/
+│       │   └── app.py
+│       ├── Dockerfile
+│       └── requirements.txt
 │
-├── load-test/ # Load Testing
-│ ├── locustfile.py
-│ └── .gitignore
+├── terraform/                  # Infrastructure as Code
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── providers.tf
+│
+├── load-test/                  # Load Testing
+│   ├── locustfile.py
+│   ├── requirements.txt
+│   └── .gitignore
 │
 └── README.md
 ```

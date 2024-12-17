@@ -23,3 +23,13 @@ resource "helm_release" "api" {
 
   depends_on = [kubernetes_namespace.app]
 }
+
+resource "helm_release" "hello-service" {
+  name      = "hello-service"
+  namespace = kubernetes_namespace.app.metadata[0].name
+
+  chart   = "../chart/hello-service"
+  version = "0.1.0"
+
+  depends_on = [kubernetes_namespace.app]
+}
